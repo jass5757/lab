@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Object Basics | COMP1073 Client-Side JavaScript</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="css/normalize.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
+	<script src="js/objects.js" defer></script>
+</head>
+
+<body>
+	<h1>Object Basics</h1>
+	<p>Almost everything in JavaScript is an object. This week, we will focus on JavaScript object syntax, while at the same time reviewing many of the concepts and structures we have already covered in the course.</p>
+	
+	<h2>Output</h2>
+	<p id="output"></p> <!-- Will display the bio of the person object -->
+	<p id="output2"></p> <!-- Will display information about the car object -->
+	
+	<!-- Inline script for output generation -->
+	<script>
+		// STEP 1: Create the person object
+		let person = {
+			name: {
+				firstName: "Priyansh",
+				lastName: "Thakar"
+			},
+			age: 16,
+			gender: "Male",
+			interests: ["swimming", "dancing", "cooking"],
+			bio: function() {
+				// Create a bio string about the person
+				return `The interests of ${this.name.firstName}, of age ${this.age}, of gender ${this.gender} are ${this.interests.join(", ")}.`;
+			}
+		};
+
+		// STEP 2: Display the bio in the first output paragraph
+		document.getElementById("output").textContent = person.bio();
+
+		// STEP 3: Create a car object with methods
+		let car = {
+			brand: "Honda",
+			model: "Civic",
+			fun: function() {
+				// Create a fun string about the car
+				return `This is a ${this.brand} ${this.model}.`;
+			}
+		};
+
+		// STEP 4: Display the car info in the second output paragraph
+		document.getElementById("output2").textContent = car.fun();
+	</script>
+</body>
+
+</html>
